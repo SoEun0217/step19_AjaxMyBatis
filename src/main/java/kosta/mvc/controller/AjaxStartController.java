@@ -9,7 +9,7 @@ import java.util.Map;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kosta.mvc.dto.MemberDTO;
+import kosta.mvc.model.dto.MemberDTO;
 
 @RestController //@Controller + @ResponseBody
 public class AjaxStartController {

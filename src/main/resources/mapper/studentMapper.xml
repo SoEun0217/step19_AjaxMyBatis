@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="studentMapper">
+
+	<!-- 검색(전체검색 or 조건검색 -->
+	<select id="select" parameterType="string"
+		resultType="studentDTO">
+		select st_no,st_name,st_age,st_addr,st_phone from student
+		<if test="_parameter!=null">
+			<where>
+				st_no=#{_parameter}
+			</where>
+		</if>
+		order by st_no
+	</select>
+
+	<!-- 등록 -->
+	<insert id="insert" parameterType="studentDTO">
+		insert into student values(#{stNo},#{stName},#{stAge},#{stPhone},#{stAddr})
+	</insert>
+
+	<!-- 수정 -->
+	<update id="update" parameterType="studentDTO">
+		update student
+		<set>
+			<if test="stName!=null">
+				st_Name = #{stName},
+			</if>
+			<if test="stAge>0">
+				st_Age = #{stAge},
+			</if>
+			<if test="stAddr!=null">
+				st_Addr = #{stAddr},
+			</if>
+			<if test="stPhone!=null">
+				st_Phone = #{stPhone},
+			</if>
+			</set>
+			where st_no = #{stNo}
+		
+	</update>
+	<!-- 삭제 -->
+	<delete id="delete" parameterType="string">
+		delete from student where st_no = #{_parameter}
+	</delete>
+
+</mapper>

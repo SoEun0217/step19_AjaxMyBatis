@@ -1,4 +1,4 @@
-package kosta.mvc.dto;
+package kosta.mvc.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberDTO {
-	private String id;
-	private String name;
-	private int age;
-	private String addr;
+public class StudentDTO {
+	private String stNo;
+	private String stName;
+	private int stAge;
+	private String stPhone;
+	private String stAddr;
+
 }
